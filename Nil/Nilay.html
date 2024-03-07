@@ -5,247 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="animation.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
   <title>Horizontal Scroll Example</title>
   <style>
-    .full-width-img {
-      padding-top:100px;
-      padding-left:50px;
-      padding-right:40px;
-      width: 90%;
-      height: 500px;
-      border-radius: 2px;
-      position: relative;
-    }
-    .overlay-text {
-        position: absolute;
-        top: 55%;
-        left: 30%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 36px;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px black;
-        text-align: center;
-        animation: jump 2s infinite alternate; /* Define the animation */
-    }
-
-    .explore-homes {
-      margin-top: 50px;
-      text-align: center;
-    }
-
-    .explore-homes h2 {
-      color: black;
-      font-size: 36px;
-      font-weight: bold;
-    }
-    .explore-homes p {
-      color: #888888; /* Lighter color */
-      font-size: 20px;
-    }
-    img{
-      height:200px;
-      width:200px;
-      position: relative;
-      transition: transform 0.3s ease;
-    }
     
-    .scroll-container {
-      width: 100%; /* Full width */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      white-space: nowrap; /* Prevent wrapping */
-      padding-left:20px;
-    }
-    
-    .scroll-item {
-      display: inline-block;
-      width: 200px;
-      height: 200px;
-      background-color: #ccc;
-      margin-right: 20px;
-      vertical-align: top; /* Align items to the top */
-      position: relative;
-      overflow: hidden;
-    }
-    .scroll-item img {
-      max-width: 100%; /* Ensure the image does not exceed the container width */
-      max-height: 100%; /* Ensure the image does not exceed the container height */
-    }
-    .scroll-item:hover img {
-      transform: scale(1.1); /* Enlarge the image on hover */
-    }
-    .scroll-item .city-text {
-      position: absolute;
-      bottom: 5px;
-      left: 5px;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      text-shadow: 1px 1px 2px black;
-      z-index: 1;
-    }
-    @keyframes jump { /* Define the animation details */
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); } /* Move up 20px */
-      100% { transform: translateY(0); }
-    }
-        * {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
-            scroll-behavior: smooth;
-            scroll-padding-top: 2rem;
-        }
-        
-        :root {
-            --blue-color: #0E3C6D;
-            --light-blue-color: #4593C3;
-            --brown-color: #46342ffd;
-            --text-color: rgb(255, 255, 255);
-            --bgcolor: #8B684E;
-            --redcolor: rgb(240, 85, 85);
-            --socialicons: #ecc39a;
-        }
-        
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            right: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--blue-color);
-            box-shadow: 0 8px 11px rgb(14 55 77 / 20%);
-            color: var(--text-color);
-            padding: 20px 100px;
-            transition: 0.5s;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-color);
-            column-gap: 0.5rem;
-            padding-left: 6.25rem;
-        }
-        
-        .logo .bx {
-            font-size: 24px;
-            color: var(--redcolor);
-        }
-        
-        .logo span {
-            color: var(--redcolor);
-            font-size: 30px;
-            padding-bottom: 0.2rem;
-        }
-        
-        .navbar {
-            display: flex;
-            column-gap: 0.5rem;
-            box-sizing: border-box;
-        }
-        
-        .navbar a {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-color);
-            padding: 0.5rem 1rem;
-        }
-        
-        .navbar a:hover,
-        .navbar .home-active {
-            color: var(--redcolor);
-            font-weight: 700;
-        }
-        
-        .search {
-            height: 1.5rem;
-            width: 13rem;
-            margin-right: 0px;
-            border-radius: 5px;
-        }
-        
-        .search:hover {
-            border: 1px solid var(--redcolor);
-        }
-        
-        form button {
-            height: 1.7rem;
-        }
-        
-        form button .bx {
-            color: red;
-        }
-        
-        #menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10001;
-            display: none;
-        }
-        .footer {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-  gap: 1.5rem;
-  margin-top: 2rem;
-  background: var(--socialicons);
-  border-radius: 0.5rem;
-  padding: 20px;
-}
-
-.footer-box {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-box p {
-  font-size: 0.938rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.footer-box h2 {
-  color: var(--blue-color);
-}
-
-.social {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-}
-
-.social .bx {
-  padding: 10px;
-  background: var(--light-blue-color);
-  color: white;
-  border-radius: 5rem;
-  font-size: 20px;
-}
-
-.social .bx:hover {
-  background: white;
-  color: var(--light-blue-color);
-  transition: 0.2s all linear;
-}
-
-.footer-box a {
-  color: white;
-}
-
-.footer-box a:hover {
-  color: var(--light-blue-color);
-}
-
-        
   </style>
 </head>
 <body>
@@ -290,158 +55,161 @@
       </div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
   
   <div class="scroll-container">
     <div class="scroll-item">
-      <a href="ahm.html">
-        <img src="amd.jpg" alt="Item 1">
+      <a href="ahemdabad.html" target="_blank">
+        <img src="ahemdabad.jpg" alt="Item 1">
       </a>
       <p style="background-color: silver !important;"><span class="city-text">Ahmedabad,GJ</span></p>
 
     </div>
     <div class="scroll-item">
-      <a href="mumbai.html">
-        <img src="mum.png" alt="Item 2">
+      <a href="mumbai.html" target="_blank">
+        <img src="mumbai.png" alt="Item 2">
       </a>
       <span class="city-text">Mumbai,MH</span>
     </div>
     <div class="scroll-item">
-      <a href="jaipur.html">
-        <img src="Jai.webp" alt="Item 3"><!--Jaipur-->
+      <a href="jaipur.html" target="_blank">
+        <img src="jaipur.webp" alt="Item 3"><!--Jaipur-->
       </a>
       <span class="city-text">Jaipur,RJ</span>
 
     </div>
     <div class="scroll-item">
-      <a href="chennai.html">
-        <img src="chee.jpg" alt="Item 4"><!--Chennai-->
+      <a href="chennai.html" target="_blank">
+        <img src="chennai.jpg" alt="Item 4"><!--Chennai-->
       </a>
       <span class="city-text">Chennai,TN</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Pan.html">
-        <img src="Goa.avif" alt="Item 5"><!--Goa-->
+      <a href="panaji.html" target="_blank">
+        <img src="panaji.avif" alt="Item 5"><!--Goa-->
       </a>
       <span class="city-text">Panaji,GA</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Dharam.html">
-        <img src="dha.jpg" alt="Item 6"><!--Dharamshala-->
+      <a href="dharamshala.html" target="_blank">
+        <img src="dharamshala.jpg" alt="Item 6"><!--Dharamshala-->
       </a>
       <span class="city-text">Dharamshala,HP</span>
 
     </div>
     <div class="scroll-item">
-      <a href="kash.html">
-        <img src="jks.jpg" alt="Item 7"><!--Jammu Kashmir-->
+      <a href="srinagar.html" target="_blank">
+        <img src="srinagar.jpg" alt="Item 7"><!--Jammu Kashmir-->
       </a>
       <span class="city-text">Srinagar,JK</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Amritsar.html">
-        <img src="amr.webp" alt="Item 8"><!--Amritsar-->
+      <a href="amritsar.html" target="_blank">
+        <img src="amritsar.jpg" alt="Item 8"><!--Amritsar-->
       </a>
       <span class="city-text">Amritsar,PB</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Bhuv.html">
-        <img src="bhu.jpg" alt="Item 9"><!--Bhuvaneshwar-->
+      <a href="bhuvaneshwar.html" target="_blank">
+        <img src="bhuvaneshwar.jpg" alt="Item 9"><!--Bhuvaneshwar-->
       </a>
       <span class="city-text">Bhuvaneshwar,OD</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Thiru.html">
-        <img src="kel.png" alt="Item 10"><!--Kelera-->
+      <a href="trivandrum.html" target="_blank">
+        <img src="trivandrum.png" alt="Item 10"><!--Kelera-->
       </a>
       <span class="city-text">Trivandrum,KL</span>
 
     </div>
     <div class="scroll-item">
-      <a href="banglore.html">
-        <img src="ban.avif" alt="Item 11"><!--Banglore-->
+      <a href="banglore.html" target="_blank">
+        <img src="banglore.avif" alt="Item 11"><!--Banglore-->
       </a>
       <span class="city-text">Banglore,KA</span>
 
     </div>
     <div class="scroll-item">
-      <a href="kolkata.html">
-        <img src="kol.webp" alt="Item 12"><!--Kolkalta-->
+      <a href="kolkata.html" target="_blank">
+        <img src="kolkata.webp" alt="Item 12"><!--Kolkalta-->
       </a>
       <span class="city-text">Kolkata,WB</span>
 
     </div>
     <div class="scroll-item">
-      <a href="guwahati.html">
-        <img src="guw.jpg" alt="Item 13"><!--Guwahati-->
+      <a href="guwahati.html" target="_blank"> 
+        <img src="guwahati.jpg" alt="Item 13"><!--Guwahati-->
       </a>
       <span class="city-text">Guwahati,AS</span>
 
     </div>
     <div class="scroll-item">
-      <a href="kohima.html">
-        <img src="Nag.webp" alt="Item 14">
+      <a href="kohima.html" target="_blank">
+        <img src="kohima.webp" alt="Item 14">
       </a>
       <span class="city-text">Kohima,NL</span>
 
     </div>
     <div class="scroll-item">
-      <a href="imphal.html">
-        <img src="man.jpeg" alt="Item 15"><!-- Manipur -->
+      <a href="imphal.html" target="_blank">
+        <img src="imphal.jpeg" alt="Item 15"><!-- Manipur -->
       </a>
       <span class="city-text">Imphal,MN</span>
 
     </div>
     <div class="scroll-item">
-      <a href="NewDelhi.html">
-        <img src="New.avif" alt="Item 16"><!--New Delhi-->
+      <a href="newdelhi.html" target="_blank">
+        <img src="newdelhi.avif" alt="Item 16"><!--New Delhi-->
       </a>
       <span class="city-text">New Delhi,DL</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Kanpur.html">
-        <img src="kan.jpg" alt="Item 17"><!--kanpur-->
+      <a href="kanpur.html" target="_blank">
+        <img src="kanpur.jpg" alt="Item 17" ><!--kanpur-->
       </a>
       <span class="city-text">Kanpur,UP</span>
 
     </div>
     <div class="scroll-item">
-      <a href="Amara.html">
-        <img src="amr.jpg" alt="Item 17"><!--Andhra Pradesh-->
+      <a href="amaravati.html" target="_blank">
+        <img src="amaravati.webp" alt="Item 17"><!--Andhra Pradesh-->
       </a>
       <span class="city-text">Amaravati,AP</span>
 
     </div>
     <div class="scroll-item">
-      <a href="hyder.html">
-        <img src="Tel.png" alt="Item 18"><!--Telangana-->
+      <a href="hyderabad.html" target="_blank">
+        <img src="hyderabad.png" alt="Item 18"><!--Telangana-->
       </a>
       <span class="city-text">Hyderabad,TL</span>
 
     </div>
     <div class="scroll-item">
-      <a href="ranchi.html">
-        <img src="ran.avif" alt="Item 19"><!--Jarkhand-->
+      <a href="ranchi.html" target="_blank">
+        <img src="ranchi.avif" alt="Item 19"><!--Jarkhand-->
       </a>
       <span class="city-text">Ranchi,JH</span>
 
     </div>
     <div class="scroll-item">
-      <a href=shillong.html>
-        <img src="meg.webp" alt="Item 20"><!--Meghalaya-->
+      <a href=shillong.html target="_blank">
+        <img src="shillong.webp" alt="Item 20"><!--Meghalaya-->
       </a>
       <span class="city-text">Shillong,ML</span>
 
     </div>
 
     <div class="scroll-item">
-      <a href="mipi.html">
-        <img src="imp.jpg" alt="Item 22"><!--Arunachal-->
+      <a href="mipi.html" target="_blank">
+        <img src="mipi.jpg" alt="Item 22"><!--Arunachal-->
       </a>
       <span class="city-text">Mipi,AR</span>
     </div>
@@ -493,6 +261,8 @@
     <div class="copyright">
       <p>&#169; Copyright All right Reserved</p>
     </div>
+
+
      
   </body>
 </html>
